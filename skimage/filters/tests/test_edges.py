@@ -64,7 +64,7 @@ def test_sobel_vertical():
     image = (j >= 0).astype(float)
     result = filters.sobel(image) * np.sqrt(2)
     j[np.abs(i) == 5] = 10000
-    assert (np.all(result[j == 0] == 1))
+    assert (np.all(np.around(result,decimals=5)[j == 0] == 1))
     assert (np.all(result[np.abs(j) > 1] == 0))
 
 
@@ -254,6 +254,7 @@ def test_prewitt_horizontal():
     i, j = np.mgrid[-5:6, -5:6]
     image = (i >= 0).astype(float)
     result = filters.prewitt(image) * np.sqrt(2)
+    result = np.around(result,decimals=5)
     # Fudge the eroded points
     i[np.abs(j) == 5] = 10000
     assert (np.all(result[i == 0] == 1))
@@ -266,6 +267,7 @@ def test_prewitt_vertical():
     image = (j >= 0).astype(float)
     result = filters.prewitt(image) * np.sqrt(2)
     j[np.abs(i) == 5] = 10000
+    result = np.around(result,decimals=5)
     assert_allclose(result[j == 0], 1)
     assert_allclose(result[np.abs(j) > 1], 0, atol=1e-10)
 
@@ -324,6 +326,7 @@ def test_prewitt_v_vertical():
     result = filters.prewitt_v(image)
     # Fudge the eroded points
     j[np.abs(i) == 5] = 10000
+    result = np.around(result,decimals=5)
     assert (np.all(result[j == 0] == 1))
     assert_allclose(result[np.abs(j) > 1], 0, atol=1e-10)
 
@@ -333,6 +336,7 @@ def test_prewitt_v_horizontal():
     i, j = np.mgrid[-5:6, -5:6]
     image = (i >= 0).astype(float)
     result = filters.prewitt_v(image)
+    result = np.around(result,decimals=5)
     assert_allclose(result, 0)
 
 
@@ -380,6 +384,7 @@ def test_horizontal_mask_line(grad_func):
     expected[4:7, 1:-1] = 0              # but line and neighbors masked
 
     result = grad_func(vgrad, mask)
+    result = np.around(result,decimals=5)
     assert_allclose(result, expected)
 
 
@@ -399,6 +404,7 @@ def test_vertical_mask_line(grad_func):
     expected[1:-1, 4:7] = 0              # but line and neighbors masked
 
     result = grad_func(hgrad, mask)
+    result = np.around(result,decimals=5)
     assert_allclose(result, expected)
 
 

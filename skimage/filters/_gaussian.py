@@ -5,7 +5,7 @@ from scipy import ndimage as ndi
 from ..util import img_as_float
 from ..color import guess_spatial_dimensions
 from .._shared.utils import warn, convert_to_float
-
+from gputools.convolve import gaussian_filter
 
 __all__ = ['gaussian']
 
@@ -130,5 +130,11 @@ def gaussian(image, sigma=1, output=None, mode='nearest', cval=0,
         if len(sigma) != image.ndim:
             sigma = np.concatenate((np.asarray(sigma), [0]))
     image = convert_to_float(image, preserve_range)
-    return ndi.gaussian_filter(image, sigma, mode=mode, cval=cval,
-                               truncate=truncate)
+    right_dimesions = len(image.shape)<4
+    right_mode = mode == 'constant'
+    right_sigma = np.isscalar(sigma) and sigma != 0 or not np.isscalar(sigma) and 0 not in sigma
+    if  right_dimesions and right_sigma:
+        return gaussian_filter(image, sigma = sigma, truncate= truncate, normalize=True)
+    else:
+        return ndi.gaussian_filter(image, sigma, mode=mode, cval=cval,
+                                   truncate=truncate)
