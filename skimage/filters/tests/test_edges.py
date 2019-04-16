@@ -64,6 +64,7 @@ def test_sobel_vertical():
     image = (j >= 0).astype(float)
     result = filters.sobel(image) * np.sqrt(2)
     j[np.abs(i) == 5] = 10000
+    # assert np.testing.assert_allclose(result[j == 0], 1, atol=1e-5)
     assert (np.all(np.around(result,decimals=5)[j == 0] == 1))
     assert (np.all(result[np.abs(j) > 1] == 0))
 

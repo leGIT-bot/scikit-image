@@ -14,7 +14,13 @@ from .. import img_as_float
 from .._shared.utils import assert_nD
 from scipy.ndimage import binary_erosion, generate_binary_structure
 # from scipy.ndimage import convolve
-from gputools.convolve import convolve
+
+try:
+    from gputools.convolve import convolve
+    GPUTOOLS_AVAILABLE = True
+except:
+    from scipy.ndimage import convolve
+    GPUTOOLS_AVAILABLE = False
 
 from ..restoration.uft import laplacian
 
@@ -137,6 +143,7 @@ def sobel_h(image, mask=None):
     assert_nD(image, 2)
     image = img_as_float(image)
     result = convolve(image, HSOBEL_WEIGHTS)
+
     return _mask_filter_result(result, mask)
 
 
