@@ -135,11 +135,11 @@ def gaussian(image, sigma=1, output=None, mode='nearest', cval=0,
         if len(sigma) != image.ndim:
             sigma = np.concatenate((np.asarray(sigma), [0]))
     image = convert_to_float(image, preserve_range)
-    right_dimesions = len(image.shape)<4
-    right_mode = mode == 'constant'
-    right_cval = cval == 0
-    right_sigma = np.isscalar(sigma) and sigma != 0 or not np.isscalar(sigma) and 0 not in sigma
-    if  right_dimesions and right_sigma and GPUTOOLS_AVAILABLE:
+    gputools_dimesions = len(image.shape)<4
+    gputools_mode = mode == 'constant'
+    gputools_cval = cval == 0
+    gputools_sigma = np.isscalar(sigma) and sigma != 0 or not np.isscalar(sigma) and 0 not in sigma
+    if  gputools_cval and gputools_dimesions and gputools_mode and gputools_sigma and GPUTOOLS_AVAILABLE:
         return gaussian_filter(image, sigma = sigma, truncate= truncate, normalize=True)
     else:
         return ndi.gaussian_filter(image, sigma, mode=mode, cval=cval,
