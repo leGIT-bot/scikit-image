@@ -1,6 +1,7 @@
 
 import numpy as np
-from ..util import img_as_ubyte, crop
+from .._shared.dtype import img_as_ubyte
+from ..util import crop
 from ._skeletonize_3d_cy import _compute_thin_image
 
 

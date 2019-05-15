@@ -3,7 +3,7 @@ import functools
 import numpy as np
 
 from .. import color
-from ..util.dtype import convert
+from .._shared.dtype import convert
 
 
 __all__ = ['adapt_rgb', 'hsv_value', 'each_channel']

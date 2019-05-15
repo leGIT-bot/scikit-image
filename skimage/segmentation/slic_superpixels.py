@@ -2,7 +2,8 @@ import collections as coll
 import numpy as np
 from scipy import ndimage as ndi
 
-from ..util import img_as_float, regular_grid
+from .._shared.dtype import img_as_float
+from ..util import regular_grid
 from ..segmentation._slic import (_slic_cython,
                                   _enforce_label_connectivity_cython)
 from ..color import rgb2lab

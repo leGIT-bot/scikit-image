@@ -1,6 +1,6 @@
 import numpy as np
 from scipy.interpolate import RectBivariateSpline
-from ..util import img_as_float
+from .._shared.dtype import img_as_float
 from ..filters import sobel
 
 

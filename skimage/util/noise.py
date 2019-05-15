@@ -1,5 +1,5 @@
 import numpy as np
-from .dtype import img_as_float
+from .._shared.dtype import img_as_float
 
 
 __all__ = ['random_noise']

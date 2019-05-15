@@ -4,7 +4,7 @@ import numpy as np
 from scipy import ndimage as ndi
 from scipy import stats
 
-from ..util import img_as_float
+from .._shared.dtype import img_as_float
 from ..feature import peak_local_max
 from ..feature.util import _prepare_grayscale_input_2D
 from ..feature.corner_cy import _corner_fast

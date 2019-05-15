@@ -2,7 +2,7 @@ import numpy as np
 
 import scipy.ndimage as ndi
 
-from ..util import img_as_float
+from .._shared.dtype import img_as_float
 from ..color import rgb2lab
 
 from ._quickshift_cy import _quickshift_cython

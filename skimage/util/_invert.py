@@ -1,5 +1,5 @@
 import numpy as np
-from .dtype import dtype_limits
+from .._shared.dtype import dtype_limits
 
 
 def invert(image, signed_float=False):

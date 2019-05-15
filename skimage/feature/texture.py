@@ -5,7 +5,7 @@ Methods to characterize image textures.
 import numpy as np
 import warnings
 from .._shared.utils import assert_nD
-from ..util import img_as_float
+from .._shared.dtype import img_as_float
 from ..color import gray2rgb
 from ._texture import (_glcm_loop,
                        _local_binary_pattern,

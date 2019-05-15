@@ -5,7 +5,7 @@ import numpy as np
 import types
 import numbers
 
-from ..util import img_as_float
+from .._shared.dtype import img_as_float
 from ._warnings import all_warnings, warn
 
 __all__ = ['deprecated', 'get_bound_method_class', 'all_warnings',

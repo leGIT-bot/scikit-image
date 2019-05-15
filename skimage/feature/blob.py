@@ -3,7 +3,7 @@ from scipy.ndimage import gaussian_filter, gaussian_laplace
 import math
 from math import sqrt, log
 from scipy import spatial
-from ..util import img_as_float
+from .._shared.dtype import img_as_float
 from .peak import peak_local_max
 from ._hessian_det_appx import _hessian_matrix_det
 from ..transform import integral_image

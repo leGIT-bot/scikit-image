@@ -124,7 +124,7 @@ else:
         _raise_build_error(e)
 
     # All skimage root imports go here
-    from .util.dtype import (img_as_float32,
+    from ._shared.dtype import (img_as_float32,
                              img_as_float64,
                              img_as_float,
                              img_as_int,

@@ -1,7 +1,7 @@
 import numpy as np
 
 from ..color import rgb2gray
-from ..util.dtype import dtype_range, dtype_limits
+from .._shared.dtype import dtype_range, dtype_limits
 from .._shared.utils import warn
 
 

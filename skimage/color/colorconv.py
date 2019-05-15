@@ -53,7 +53,8 @@ References
 from warnings import warn
 import numpy as np
 from scipy import linalg
-from ..util import dtype, dtype_limits
+from .._shared import dtype
+from .._shared.dtype import dtype_limits
 
 
 def guess_spatial_dimensions(image):

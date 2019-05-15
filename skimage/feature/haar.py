@@ -9,7 +9,7 @@ from ._haar import haar_like_feature_wrapper
 from ..color import gray2rgb
 from ..draw import rectangle
 from .._shared.utils import check_random_state
-from ..util import img_as_float
+from .._shared.dtype import img_as_float
 
 FEATURE_TYPE = ('type-2-x', 'type-2-y',
                 'type-3-x', 'type-3-y',

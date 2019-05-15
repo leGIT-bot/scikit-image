@@ -2,7 +2,7 @@
 import numpy as np
 from scipy.ndimage import uniform_filter, gaussian_filter
 
-from ..util.dtype import dtype_range
+from .._shared.dtype import dtype_range
 from ..util.arraycrop import crop
 from .._shared.utils import warn
 

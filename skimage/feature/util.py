@@ -1,6 +1,6 @@
 import numpy as np
 
-from ..util import img_as_float
+from .._shared.dtype import img_as_float
 from .._shared.utils import assert_nD
 
 

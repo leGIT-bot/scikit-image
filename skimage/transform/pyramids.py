@@ -2,7 +2,7 @@ import math
 import numpy as np
 from scipy import ndimage as ndi
 from ..transform import resize
-from ..util import img_as_float
+from .._shared.dtype import img_as_float
 from ._warps import _multichannel_default
 
 

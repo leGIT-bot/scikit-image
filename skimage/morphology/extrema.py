@@ -15,7 +15,8 @@ from __future__ import absolute_import
 import numpy as np
 from scipy import ndimage as ndi
 
-from ..util import dtype_limits, invert, crop
+from .._shared.dtype import dtype_limits
+from ..util import invert, crop
 from .._shared.utils import warn
 from . import greyreconstruct
 from .watershed import _offsets_to_raveled_neighbors

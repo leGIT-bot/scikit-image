@@ -7,7 +7,8 @@ from collections.abc import Iterable
 from ..exposure import histogram
 from .._shared.utils import assert_nD, warn, deprecated
 from ..transform import integral_image
-from ..util import crop, dtype_limits
+from ..util import crop
+from .._shared.dtype import dtype_limits
 
 
 __all__ = ['try_all_threshold',

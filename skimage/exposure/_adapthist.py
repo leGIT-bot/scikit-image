@@ -15,7 +15,7 @@ comes with no guarantee.
 """
 import numbers
 import numpy as np
-from ..util import img_as_float, img_as_uint
+from .._shared.dtype import img_as_float, img_as_uint
 from ..color.adapt_rgb import adapt_rgb, hsv_value
 from ..exposure import rescale_intensity
 
